@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>A Little Surprise For You ♡</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css"></head><body>
+<canvas id="stars"></canvas><div class="glow"></div>
+<div class="sound"><button id="sound">♫ Sound off</button></div>
+<main>
+<section class="screen active hero" id="home"><p class="eyebrow">♥ A LITTLE SURPRISE, MADE WITH LOVE</p><p class="script">For someone who makes ordinary days special</p><h1>Hey, <em id="recipient">Beautiful</em>.</h1><p class="muted">I made a little corner of the internet just for you.</p><button class="primary" data-go="story">Open your surprise ↗</button><small>Best experienced with sound on · headphones optional</small></section>
+<section class="screen story" id="story"><p class="eyebrow">01 / THE REASON</p><p class="script">If I could give you one thing…</p><h2>It would be the ability to see yourself <em>through my eyes.</em></h2><p class="copy">Maybe then you'd understand how your smile changes a room, how your laugh makes a hard day softer, and how the smallest moments with you become the ones I keep.</p><button class="textbtn" data-go="memories">There’s more →</button><div class="orb">♡</div></section>
+<section class="screen memories" id="memories"><p class="eyebrow">02 / LITTLE MOMENTS</p><p class="script">A few things I want to remember</p><h2>Our kind of <em>magic.</em></h2><p class="muted">Replace these cards with your own photos and memories.</p><div class="grid"><article>
+<img class="memory-image gallery-photo" src="images/memory1.jpeg" alt="A favourite memory with Sneha">
+<b>THE BEGINNING</b><p>“The day this became a favourite story.”</p></article><article>
+<img class="memory-image gallery-photo" src="images/memory2.jpeg" alt="Another favourite memory with Sneha">
+<b>THE LITTLE THINGS</b><p>“Nothing extraordinary. Everything special.”</p></article>
+<article>
+  <img class="memory-image gallery-photo" src="images/memory3.jpeg" alt="A special memory with Sneha">
+  <b>ANOTHER CHAPTER</b>
+  <p>“Every memory with you means something.”</p>
+</article>
+
+<article>
+  <img class="memory-image gallery-photo" src="images/memory4.jpeg" alt="A favourite moment with Sneha">
+  <b>MORE TO COME</b>
+  <p>“The best parts of our story are still ahead.”</p>
+</article>
+</div><button class="textbtn" data-go="letter">One last thing →</button></section>
+<section class="screen letter" id="letter"><p class="eyebrow">03 / FROM MY HEART</p><div class="seal">♡</div><p class="script">A letter for you</p><h2>Just between <em>us.</em></h2><p class="muted">Some things are better said slowly.</p>
+    
+<div class="envelope-area">
+  <button class="envelope" id="envelopeBtn"
+          aria-label="Open your birthday letter"
+          aria-expanded="false">
+    <span class="envelope-back"></span>
+    <span class="letter-preview">
+      <span>For Sneha</span>
+      <span>♡</span>
+    </span>
+    <span class="envelope-front"></span>
+    <span class="envelope-flap"></span>
+    <span class="wax-seal">♡</span>
+  </button>
+  <p class="envelope-hint" id="envelopeHint">
+    A little letter, sealed with love · Click to open
+  </p>
+</div>
+
+    <button class="primary" id="openLetter">Open the letter ♡</button><div id="letterText">
+<p>My dearest Sneha,</p>
+
+<p>Happy birthday to someone who makes life a little more beautiful just by being in it.</p>
+
+<p>I wanted to make something different for you—not just a birthday wish, but a small place filled with memories, smiles, and words that I hope will make you feel special.</p>
+
+<p>I hope this new chapter brings you happiness, peace, exciting adventures, and all the little things your heart has been wishing for. Never forget how special you are and how much you deserve to be loved and appreciated.</p>
+
+<p>And if there is one thing I want you to remember, it is this: you deserve beautiful moments, today and every day.</p>
+
+<p class="signature">With all my love,<br><span id="sender">Angshumaan</span> ♡</p>
+</div>
+<button class="primary" data-go="finale">
+  Reveal your birthday surprise ♡
+</button>
+<button class="textbtn" data-go="home">
+  ↻ Start again
+</button>
+</section>
+
+
+<section class="screen finale" id="finale">
+  <p class="eyebrow">04 / YOUR SPECIAL DAY</p>
+
+  <div class="birthday-cake" id="birthdayCake"
+     role="button" tabindex="0"
+     aria-label="Click to blow out the birthday candles">
+    <div class="flames">
+      <span class="flame"></span>
+      <span class="flame"></span>
+      <span class="flame"></span>
+    </div>
+    <div class="candles">
+      <span></span><span></span><span></span>
+    </div>
+    <div class="icing"></div>
+    <div class="cake-top"></div>
+    <div class="cake-body"></div>
+    <div class="cake-plate"></div>
+  </div>
+
+  <p class="script">Made with love, just for you</p>
+  <h2>Happy Birthday,<br><em>Sneha!</em></h2>
+  <p class="muted">May your world always be filled with love, laughter and magic.</p>
+  <p id="cakeMessage" class="cake-message">
+  Make a wish, Sneha, and blow out the candles! ♡
+</p>
+
+  <button class="primary" data-go="finale">
+  Reveal your birthday surprise ♡
+</button>
+  <button class="primary" data-go="home">♡ Relive the surprise</button>
+</section>
+
+<div class="photo-viewer" id="photoViewer" aria-hidden="true">
+  <button class="viewer-close" id="viewerClose" aria-label="Close photo viewer">×</button>
+  <button class="viewer-arrow viewer-prev" id="viewerPrev" aria-label="Previous photo">‹</button>
+
+  <div class="viewer-content">
+    <img id="viewerImage" src="" alt="Memory with Sneha">
+    <p id="viewerCaption"></p>
+    <span id="viewerCounter"></span>
+  </div>
+
+  <button class="viewer-arrow viewer-next" id="viewerNext" aria-label="Next photo">›</button>
+</div>
+
+</main>
+
+<div class="progress"><span id="bar"></span></div><div id="hearts"></div><script src="script.js"></script></body></html>

@@ -1,0 +1,453 @@
+:root{--pink:#f2a9c8;--cream:#f9f0eb;--muted:#bba9c5}*{box-sizing:border-box}body{margin:0;background:#160d22;color:var(--cream);font-family:'DM Sans',sans-serif;overflow-x:hidden}#stars{position:fixed;inset:0;width:100%;height:100%;pointer-events:none}.glow{position:fixed;width:55vw;height:55vw;left:-20vw;top:-30vw;background:#b94e91;filter:blur(100px);opacity:.14;pointer-events:none}main{position:relative}.screen{display:none;min-height:100vh;padding:75px 8vw;position:relative;overflow:hidden}.screen.active{display:flex;flex-direction:column;justify-content:center;align-items:flex-start;animation:in .8s both}.hero{text-align:center;align-items:center!important}.eyebrow{font-size:.68rem;letter-spacing:.2em;color:var(--pink)}.script{font:italic 1.6rem 'Cormorant Garamond',serif;color:var(--pink);margin:28px 0 8px}h1,h2{font:500 clamp(3rem,8vw,6.7rem)/.98 'Cormorant Garamond',serif;letter-spacing:-.04em;margin:12px 0 22px}h1 em,h2 em{color:var(--pink);font-weight:400}.muted,.copy{color:var(--muted);line-height:1.9;max-width:650px}.primary{margin-top:24px;border:0;border-radius:40px;padding:15px 24px;background:linear-gradient(120deg,#f5b5d0,#df8bb2);color:#2a1728;font-weight:600;cursor:pointer;transition:.25s}.primary:hover{transform:translateY(-3px);box-shadow:0 10px 30px #e993bb33}.hero small{color:#8e7b98;margin-top:20px;font-size:.7rem}.textbtn{background:none;border:0;border-bottom:1px solid #f2a9c877;padding:12px 0;color:var(--cream);margin-top:20px;cursor:pointer}.orb{position:absolute;right:12%;top:30%;width:180px;height:180px;border:1px solid #f2a9c855;border-radius:50%;display:grid;place-items:center;color:var(--pink);font-size:5rem;animation:pulse 3s infinite}.memories{align-items:center!important;text-align:center}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;width:min(100%,1000px);margin:28px auto}.grid article{border:1px solid #ffffff22;padding:12px;text-align:left;background:#ffffff05}.placeholder{height:180px;background:linear-gradient(135deg,#573353,#28203d);display:flex;align-items:center;justify-content:center;flex-direction:column;color:var(--pink);font-size:2.5rem;margin-bottom:18px}.placeholder small{font: .6rem 'DM Sans';letter-spacing:.15em;margin-top:10px}.moon{background:linear-gradient(135deg,#30385d,#59314f)}.grid b{font-size:.58rem;letter-spacing:.14em;color:var(--pink)}.grid article p{font:italic 1.35rem 'Cormorant Garamond',serif}.grid .note{background:#eab0ca;color:#392139;display:flex;flex-direction:column;justify-content:center;padding:25px}.note div{font-size:2.5rem}.note b{color:#743d5e}.note p{font-size:1.65rem}.note small{font-size:.55rem;letter-spacing:.1em}.letter{align-items:center!important;text-align:center}.seal{border:1px solid #f2a9c877;color:var(--pink);border-radius:50%;width:55px;height:55px;display:grid;place-items:center;font-size:1.5rem;margin-top:25px}#letterText{display:none;text-align:left;max-width:600px;background:#f9f0eb;color:#39253a;padding:30px 38px;margin:30px auto;font:1.15rem/1.8 'Cormorant Garamond',serif;animation:in .8s}#letterText.show{display:block}.signature{color:#8e466b;font-style:italic}.sound{position:fixed;right:18px;top:15px;z-index:3}.sound button{border:1px solid #ffffff30;background:#160d22cc;color:var(--muted);padding:9px 13px;border-radius:25px;cursor:pointer}.progress{height:2px;position:fixed;bottom:0;left:0;right:0;background:#ffffff15;z-index:4}.progress span{display:block;height:100%;width:25%;background:var(--pink);transition:width .5s}#hearts{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:5}.heart{position:absolute;top:-30px;color:var(--pink);animation:fall 4s linear forwards}@keyframes in{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:none}}@keyframes pulse{50%{transform:scale(1.07);box-shadow:0 0 50px #f2a9c822}}@keyframes fall{to{transform:translateY(110vh) rotate(400deg);opacity:0}}@media(max-width:700px){.screen{padding:80px 7vw}.orb{position:relative;right:auto;top:auto;align-self:center;width:125px;height:125px;font-size:3.5rem;margin-top:30px}.grid{grid-template-columns:1fr;max-width:360px}.placeholder{height:200px}h1{font-size:clamp(3.5rem,16vw,6rem)}.memories{padding-top:80px}.grid article{width:100%}}@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+
+
+/* Keep photos inside their memory cards */
+.grid article {
+  min-width: 0;
+  overflow: hidden;
+}
+
+.memory-image {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: 190px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 3px;
+}
+
+@media (max-width: 700px) {
+  .memory-image {
+    height: 220px;
+  }
+}
+
+
+/* Final birthday reveal */
+.finale {
+  align-items: center !important;
+  text-align: center;
+  justify-content: center;
+}
+
+.finale h2 {
+  margin: 15px 0;
+}
+
+.birthday-cake {
+  width: 220px;
+  height: 190px;
+  position: relative;
+  margin: 20px auto;
+  animation: cakeFloat 3s ease-in-out infinite;
+}
+
+.cake-plate {
+  position: absolute;
+  bottom: 12px;
+  left: 10px;
+  width: 200px;
+  height: 14px;
+  background: #d9a8c8;
+  border-radius: 50%;
+}
+
+.cake-body {
+  position: absolute;
+  bottom: 26px;
+  left: 35px;
+  width: 150px;
+  height: 75px;
+  background: linear-gradient(90deg, #c76c9b, #f0b4ce, #c76c9b);
+  border-radius: 8px 8px 15px 15px;
+}
+
+.cake-top {
+  position: absolute;
+  bottom: 91px;
+  left: 35px;
+  width: 150px;
+  height: 24px;
+  background: #f8d8e6;
+  border-radius: 50%;
+  z-index: 2;
+}
+
+.icing {
+  position: absolute;
+  bottom: 78px;
+  left: 35px;
+  width: 150px;
+  height: 20px;
+  background: #f8d8e6;
+  border-radius: 0 0 12px 12px;
+  z-index: 3;
+}
+
+.candles {
+  position: absolute;
+  bottom: 111px;
+  left: 57px;
+  width: 106px;
+  display: flex;
+  justify-content: space-between;
+  z-index: 4;
+}
+
+.candles span {
+  width: 9px;
+  height: 32px;
+  border-radius: 3px;
+  background: repeating-linear-gradient(
+    45deg, #fff0f5, #fff0f5 4px, #dc8ab1 4px, #dc8ab1 7px
+  );
+}
+
+.flames {
+  position: absolute;
+  bottom: 141px;
+  left: 56px;
+  width: 108px;
+  display: flex;
+  justify-content: space-between;
+  z-index: 5;
+}
+
+.flame {
+  width: 12px;
+  height: 19px;
+  background: #ffd783;
+  border-radius: 50% 50% 50% 0;
+  transform: rotate(-45deg);
+  box-shadow: 0 0 18px #ffca75;
+  animation: flicker .6s ease-in-out infinite alternate;
+}
+
+.flame:nth-child(2) {
+  animation-delay: .2s;
+}
+
+.flame:nth-child(3) {
+  animation-delay: .4s;
+}
+
+@keyframes flicker {
+  from { transform: rotate(-45deg) scale(.9); opacity: .8; }
+  to { transform: rotate(-40deg) scale(1.1); opacity: 1; }
+}
+
+@keyframes cakeFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-7px); }
+}
+
+/* Show the final surprise only after opening the letter */
+#letter [data-go="finale"] {
+  display: none;
+}
+
+#letter:has(#letterText.show) [data-go="finale"] {
+  display: inline-block;
+  animation: revealIn 0.8s ease both;
+}
+
+@keyframes revealIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Romantic animated envelope */
+.envelope-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 25px auto 18px;
+}
+
+.envelope {
+  position: relative;
+  display: block;
+  width: 230px;
+  height: 150px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  perspective: 700px;
+  filter: drop-shadow(0 12px 20px #0003);
+  transition: transform .3s ease;
+}
+
+.envelope:hover {
+  transform: translateY(-4px);
+}
+
+.envelope-back {
+  position: absolute;
+  inset: 0;
+  background: #c779a0;
+  border-radius: 5px;
+}
+
+.letter-preview {
+  position: absolute;
+  left: 15px;
+  right: 15px;
+  bottom: 12px;
+  height: 112px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  background: #fff2f6;
+  color: #783c60;
+  font: italic 1.25rem "Cormorant Garamond", serif;
+  transition: transform .8s ease;
+}
+
+.letter-preview span:last-child {
+  font-size: 1.6rem;
+  color: #c75d91;
+}
+
+.envelope-front {
+  position: absolute;
+  inset: 0;
+  background: #e6a1bf;
+  clip-path: polygon(0 0, 50% 62%, 100% 0, 100% 100%, 0 100%);
+  border-radius: 4px;
+}
+
+.envelope-flap {
+  position: absolute;
+  inset: 0;
+  background: #f2bdd1;
+  clip-path: polygon(0 0, 100% 0, 50% 66%);
+  transform-origin: top center;
+  transition: transform .8s ease;
+  z-index: 2;
+}
+
+.wax-seal {
+  position: absolute;
+  left: 50%;
+  top: 48%;
+  transform: translate(-50%, -50%);
+  display: grid;
+  place-items: center;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background: #a63d6d;
+  color: #ffe6f0;
+  border: 2px solid #f4c4d8;
+  box-shadow: 0 2px 8px #6d204655;
+  z-index: 3;
+  font-size: 1.15rem;
+  transition: opacity .3s ease, transform .3s ease;
+}
+
+.envelope.open .envelope-flap {
+  transform: rotateX(180deg);
+  z-index: 0;
+}
+
+.envelope.open .wax-seal {
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(.4);
+}
+
+.envelope.open .letter-preview {
+  transform: translateY(-75px);
+}
+
+.envelope-hint {
+  margin: 18px 0 0;
+  font-size: .72rem;
+  color: var(--muted);
+  text-align: center;
+}
+
+@media (max-width: 700px) {
+  .envelope {
+    width: 210px;
+    height: 138px;
+  }
+}
+
+/* Interactive full-screen photo viewer */
+.gallery-photo {
+  cursor: zoom-in;
+  transition: transform .3s ease, filter .3s ease;
+}
+
+.gallery-photo:hover {
+  transform: scale(1.025);
+  filter: brightness(1.08);
+}
+
+.photo-viewer {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 24px;
+  background: rgba(13, 7, 20, .96);
+  backdrop-filter: blur(12px);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .3s ease, visibility .3s ease;
+}
+
+.photo-viewer.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.viewer-content {
+  width: min(75vw, 760px);
+  text-align: center;
+  animation: viewerIn .35s ease both;
+}
+
+.viewer-content img {
+  display: block;
+  max-width: 100%;
+  max-height: 70vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  margin: auto;
+  border: 1px solid #ffffff25;
+  box-shadow: 0 15px 70px #0006;
+}
+
+#viewerCaption {
+  color: #f2a9c8;
+  font: italic 1.5rem "Cormorant Garamond", serif;
+  margin: 16px 0 5px;
+}
+
+#viewerCounter {
+  color: #bba9c5;
+  font-size: .72rem;
+  letter-spacing: .12em;
+}
+
+.viewer-close,
+.viewer-arrow {
+  position: absolute;
+  border: 1px solid #ffffff35;
+  background: #ffffff0b;
+  color: #f9f0eb;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  transition: background .2s ease;
+}
+
+.viewer-close:hover,
+.viewer-arrow:hover {
+  background: #f2a9c833;
+}
+
+.viewer-close {
+  top: 22px;
+  right: 24px;
+  width: 42px;
+  height: 42px;
+  font-size: 1.8rem;
+}
+
+.viewer-arrow {
+  width: 45px;
+  height: 45px;
+  font-size: 2rem;
+}
+
+@keyframes viewerIn {
+  from { opacity: 0; transform: scale(.97); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@media (max-width: 600px) {
+  .photo-viewer { padding: 18px 12px; gap: 8px; }
+  .viewer-content { width: calc(100vw - 90px); }
+  .viewer-content img { max-height: 65vh; }
+  .viewer-arrow { width: 34px; height: 34px; }
+  .viewer-close { top: 14px; right: 14px; }
+}
+
+/* Interactive birthday cake */
+.birthday-cake {
+  cursor: pointer;
+  outline: none;
+}
+
+.birthday-cake:focus-visible {
+  outline: 2px solid var(--pink);
+  outline-offset: 8px;
+  border-radius: 12px;
+}
+
+.birthday-cake.blown .flames {
+  opacity: 0;
+  transform: translateY(-18px) scale(.3);
+  transition: opacity .4s ease, transform .4s ease;
+}
+
+.birthday-cake.blown {
+  animation: cakeCelebrate .6s ease;
+}
+
+.cake-message {
+  color: var(--pink);
+  font: italic 1.35rem "Cormorant Garamond", serif;
+  min-height: 32px;
+  margin: 15px auto;
+}
+
+@keyframes cakeCelebrate {
+  0%, 100% { transform: translateY(0) scale(1); }
+  40% { transform: translateY(-12px) scale(1.04); }
+  70% { transform: translateY(2px) scale(.99); }
+}
+
+/* Interactive birthday cake */
+const birthdayCake = document.getElementById("birthdayCake");
+const cakeMessage = document.getElementById("cakeMessage");
+
+function blowOutCandles() {
+  if (birthdayCake.classList.contains("blown")) return;
+
+  birthdayCake.classList.add("blown");
+  birthdayCake.setAttribute("aria-label", "The candles have been blown out");
+
+  cakeMessage.textContent =
+    "Wish made! May your year be as beautiful as your heart, Sneha. ♡";
+
+  // Use the existing heart animation for the celebration.
+  if (typeof hearts === "function") hearts(60);
+}
+
+birthdayCake.addEventListener("click", blowOutCandles);
+
+birthdayCake.addEventListener("keydown", event => {
+  if (event.key === "Enter" || event.key === " ") {
+    event.preventDefault();
+    blowOutCandles();
+  }
+});
